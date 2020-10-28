@@ -54,6 +54,12 @@ for (let [alias,languageName] of Object.entries(MAPPINGS)) {
   hljs.registerAliases(alias, {languageName})
 }
 
+// hook up the expected API so SE can do it's own highlighting
+// later if it needs to
+StackExchange.highlightjs = {
+  instance: hljs
+}
+
 // hljs.configure({
 //   "noHighlightRe": /^none$/
 // });
