@@ -26,7 +26,8 @@
         "scripts": ["background.js"]
     },
     "web_accessible_resources": [
-        "*.js"
+        "injected.js",
+        "vendor/*"
     ],
     "icons": {
         "128": "images/highlightjs_128.png",
