@@ -1,8 +1,60 @@
 #!/bin/bash
+LANGS="
+    bash
+    c-like
+    c
+    csharp
+    cpp
+    css
+    coffeescript
+    go
+    xml
+    http
+    json
+    java
+    javascript
+    kotlin
+    less
+    lua
+    makefile
+    markdown
+    objectivec
+    php
+    php-template
+    perl
+    plaintext
+    python
+    ruby
+    rust
+    scss
+    sql
+    shell
+    swift
+    ini
+    typescript
+    yaml
+    clojure
+    dart
+    delphi
+    erlang
+    haskell
+    latex
+    lisp
+    matlab
+    ocaml
+    protobuf
+    r
+    scala
+    scheme
+    vbnet
+    vhdl
+"
 
-PWD=`pwd`
+LWD=`pwd`
 cd ~/work/highlight.js
-node ./tools/build.js -t cdn :common
-cd $PWD
-cp ~/work/highlight.js/build/highlight.min.js extension/vendor
-cp -R ~/work/highlight.js/build/languages extension/vendor/
+
+node ./tools/build.js -t cdn $LANGS
+cd $LWD
+pwd
+cp ~/work/highlight.js/build/highlight.min.js ./extension/vendor/
+cp -R ~/work/highlight.js/build/languages ./extension/vendor/
