@@ -1,5 +1,3 @@
-const hljs = require("../temp");
-
 // given a block find it's lang-`class` language
 const langClassFor = (block) => {
   let list = [...block.classList.values()];
