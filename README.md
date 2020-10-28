@@ -19,7 +19,7 @@ You have choices:
 
 1. Use the `extension.crx` in `dist`.  You'll need to open the Chrome Extensions screen and then drag the extension in.
 
-2. Check out this repository, enable Developer Mode, and simply load the extension unpacked [Guide](https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/).  You'll want to point Chrome to the `extension` folder of this repo.
+2. Check out this repository, enable Developer Mode, and simply load the extension unpacked. [Here is a guide](https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/).  You'll want to point Chrome to the `extension` folder.
 
 ## Contributing
 
