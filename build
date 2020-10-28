@@ -1,0 +1,32 @@
+#!/bin/sh
+
+case "$(uname -s)" in
+    Darwin)
+        CHROME_EXE="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        ;;
+    Linux)
+        CHROME_EXE="$(which google-chrome)"
+        ;;
+    *)
+        echo "Only MacOS, so far" >&2
+        exit 1
+        ;;
+esac
+
+pack_extension() {
+    "$CHROME_EXE" --pack-extension=./extension/ "$@"
+    rc=$?
+    if [ "$rc" -ne 0 ]; then
+        echo "Hmm, non-zero exit from chrome"
+        exit "$rc"
+    fi
+}
+
+# create the .pem file if it doesn't exist
+[ -f "extension.pem" ] || pack_extension
+
+# then build the .crx file
+rm -f ./dist/extension.crx
+# rollup -c
+pack_extension --pack-extension-key=./extension.pem
+mv extension.crx dist
