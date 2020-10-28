@@ -1,0 +1,37 @@
+{
+    "name": "StackExchange - Highlight.js v10.3.1",
+    "version": "0.1",
+    "description": "Improve Highlighting on StackExchange.",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+          "matches": [
+              "https://meta.stackexchange.com/*",
+              "https://stackoverflow.com/*"
+            ],
+        //   "css": ["styles.css"],
+          "js": ["runtime.js"],
+          "run_at": "document_start"
+        }
+      ],
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        // "https://meta.stackexchange.com/*",
+        // "https://stackoverflow.com/*",
+        // "https://cdn.sstatic.net/*"
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "web_accessible_resources": [
+        "*.js"
+    ],
+    "icons": {
+        // "128": "images/exercism_128.png",
+        // "48": "images/exercism_48.png",
+        // "32": "images/exercism_32.png",
+        // "16": "images/exercism_16.png"
+    }
+  }
