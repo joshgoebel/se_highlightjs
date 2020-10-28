@@ -53,34 +53,58 @@ const MAPPINGS = {
 for (let [alias,languageName] of Object.entries(MAPPINGS)) {
   hljs.registerAliases(alias, {languageName})
 }
-// Object.keys(MAPPINGS).forEach(function(n) {
-//   t.registerAliases(n, {
-//       "languageName": e[n]
-//   })
 
-document.querySelectorAll("pre.s-code-block:not(.hljs)").forEach((el) => {
-  let lang = langClassFor(el);
-  if (!lang) return;
+// hljs.configure({
+//   "noHighlightRe": /^none$/
+// });
 
-  if (hljs.getLanguage(lang)) {
-    hljs.highlightBlock(el);
-  } else {
-    // alert("mising")
-    lang = MAPPINGS[lang] || lang;
-    let event = new CustomEvent("load-language", {detail: { lang }});
-    document.dispatchEvent(event);
+// is this even used?
+hljs.addPlugin({
+  "after:highlightBlock": function(e) {
+      const t = /linenums(:\d+)?/.exec(e.block.className);
+      if (t) {
+          for (var n = +t[1].slice(1) || 1, r = e.block.innerText.trim(), a = r.split(/\r?\n/), i = "", o = 0; o < a.length; o++) i += "<div>" + (o + n) + "</div>";
+          var s = '<code class="s-code-block--line-numbers">' + i + "</code>" + e.result.value;
+          e.result.value = s
+      }
   }
-})
-
-document.addEventListener("load-language-done", (data) => {
-  let lang = data.detail.lang;
-  // console.log("lang-done",data)
-  // alert("done");
-  document.querySelectorAll("pre.s-code-block:not(.hljs)").forEach((el) => {
-    if (langClassFor(el)===lang) {
-      hljs.highlightBlock(el);
-    }
-  });
 });
 
-console.log(`Using Highlight.js version ${hljs.versionString}`);
+const doHighlighting = () => {
+  document.querySelectorAll("pre.s-code-block:not(.hljs)").forEach((el) => {
+    let lang = langClassFor(el);
+    if (!lang) return;
+
+    if (hljs.getLanguage(lang)) {
+      // if it's already loaded, then just use it
+      hljs.highlightBlock(el);
+    } else {
+      lang = MAPPINGS[lang] || lang;
+      // asked our content script to load the language for us from the extension
+      let event = new CustomEvent("load-language", {detail: { lang }});
+      document.dispatchEvent(event);
+    }
+  })
+}
+
+const addLanguageLoadedHook = () => {
+  document.addEventListener("load-language-done", (data) => {
+    let lang = data.detail.lang;
+    // console.log("lang-done",data)
+    // alert("done");
+    document.querySelectorAll("pre.s-code-block:not(.hljs)").forEach((el) => {
+      if (langClassFor(el)===lang) {
+        hljs.highlightBlock(el);
+      }
+    });
+  });
+}
+
+const boot = () => {
+  addLanguageLoadedHook();
+  doHighlighting();
+  console.log(`Using Highlight.js version ${hljs.versionString}`);
+}
+
+boot();
+
