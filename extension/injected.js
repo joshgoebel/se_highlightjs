@@ -1,3 +1,5 @@
+const hljs = require("../temp");
+
 // given a block find it's lang-`class` language
 const langClassFor = (block) => {
   let list = [...block.classList.values()];
@@ -70,10 +72,20 @@ hljs.addPlugin({
   }
 });
 
+const autoHighlight = (el) => {
+  // TODO: probably really need some smarts here (examine tags) to load
+  // additional grammars we may want to use for the auto-detection
+  // so may need some type of simple queueing system
+  hljs.highlightBlock(el);
+}
+
 const doHighlighting = () => {
   document.querySelectorAll("pre.s-code-block:not(.hljs)").forEach((el) => {
     let lang = langClassFor(el);
-    if (!lang) return;
+    if (!lang) {
+      autoHighlight(el);
+      return;
+    }
 
     if (hljs.getLanguage(lang)) {
       // if it's already loaded, then just use it

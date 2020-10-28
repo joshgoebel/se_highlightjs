@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PWD=`pwd`
+cd ~/work/highlight.js
+node ./tools/build.js -t cdn :common
+cd $PWD
+cp ~/work/highlight.js/build/highlight.min.js extension/vendor
+cp -R ~/work/highlight.js/build/languages extension/vendor/
