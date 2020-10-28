@@ -12,6 +12,7 @@ SE_highlightjs is a Chrome Extension that aims to improve code highlighting supp
 - A small foundational set of grammars is always loaded and then additional hinted languages are loaded on-demand as necessary.
 - Blocks loading of SE's own `highlightjs-loader.en.js`, preventing it from doing whatever. :)
 - Does not require any CDNs or external resources.
+- Does not attempt to "guess" at a language when an unknown language hint is used. [Discussion](https://meta.stackexchange.com/questions/355852/stop-guessing-auto-detecting-a-language-when-you-know-it-will-be-incorrect)
 
 ## Installing
 
@@ -23,5 +24,10 @@ You have choices:
 
 ## Contributing
 
-See [CONTRIBUTING.md](https://github.com/joshgoebel/se_highlightjs/blob/main/CONTRIBUTING.md)
+Contributions are welcome.  Please open an issue first to discuss.
 
+## TODO
+
+- [ ] Use question tags to better clue the auto-detect (needs a mapping table) [Discussion](https://meta.stackexchange.com/questions/354793/improving-syntax-highlighting-language-auto-detection)
+- [ ] Do not highlight at all when overall relevancy is too low (no idea what language we really have)
+- [ ] Figure out the proper set of languages for auto-detect (currently `:common`, which is different from SE)
