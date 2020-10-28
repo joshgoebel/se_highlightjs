@@ -13,6 +13,13 @@ SE_highlightjs is a Chrome Extension that aims to improve code highlighting supp
 - Blocks loading of SE's own `highlightjs-loader.en.js`, preventing it from doing whatever. :)
 - Does not require any CDNs or external resources.
 
+## Installing
+
+You have choices:
+
+1. Use the `extension.crx` in `dist`.  You'll need to open the Chrome Extensions screen and then drag the extension in.
+
+2. Check out this repository, enable Developer Mode, and simply load the extension unpacked [Guide](https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/).  You'll want to point Chrome to the `extension` folder of this repo.
 
 ## Contributing
 
