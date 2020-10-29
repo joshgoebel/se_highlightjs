@@ -7,7 +7,7 @@ SE_highlightjs is a Chrome Extension that aims to improve code highlighting supp
 
 ### What StackExchange needs to improve (and why this exists)
 
-- The Highlight.js library version they use is often quite behind the latest.
+- The Highlight.js library version they use is often quite behind the latest. (this is especially bad early on when many bugs are being fixed fast)
 - They do not support many popular languages (despite the fact that Highlight.js does).
 - They use auto-detect in some cases when it's absolutely the wrong thing to do [Discussion](https://meta.stackexchange.com/questions/355852/stop-guessing-auto-detecting-a-language-when-you-know-it-will-be-incorrect)
 - Their auto-detection when a post has two or more tags with "hinted language" [a language associated with the tag] is quite poor (this doesn't fix that yet, but could). [Discussion](https://meta.stackexchange.com/questions/354793/improving-syntax-highlighting-language-auto-detection)
