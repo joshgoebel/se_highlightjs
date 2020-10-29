@@ -9,7 +9,7 @@
               "https://meta.stackexchange.com/*",
               "https://stackoverflow.com/*"
             ],
-        //   "css": ["styles.css"],
+          "css": ["css/styles.css"],
           "js": ["runtime.js"],
           "run_at": "document_start"
         }

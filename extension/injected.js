@@ -1,3 +1,7 @@
+// unknown code blocks with less than 3 relevance will not be
+// highlighted at all
+const MINIMAL_RELEVANCE = 3;
+
 // given a block find it's lang-`class` language
 const langClassFor = (block) => {
   let list = [...block.classList.values()];
@@ -74,6 +78,27 @@ hljs.addPlugin({
           e.result.value = s
       }
   }
+});
+hljs.addPlugin({
+  "after:highlightBlock": function(e) {
+    let autoHint, ah;
+    let wasHinted = e.block.classList.contains("was-override");
+    if (ah = document.querySelector("#js-codeblock-lang")) {
+      autoHint = ah.textContent;
+      if (autoHint === "") autoHint = false;
+    }
+
+    // wasHinted = false;
+    // if it wasn't auto or manual hinted and we barely know what it is
+    // then just don't even try
+    if (!autoHint && !wasHinted && e.result.relevance < MINIMAL_RELEVANCE) {
+      e.result.value = e.block.innerText +
+        `<span class='cantautodetect'>Could not auto-detect.</span>`
+      // console.log(e)
+    }
+    // console.log("autohint", autoHint)
+    // console.log(e.result);
+  },
 });
 
 const autoHighlight = (el) => {

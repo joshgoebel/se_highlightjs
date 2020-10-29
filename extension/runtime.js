@@ -42,7 +42,9 @@ const boot = () => {
   })
 };
 
+// ---
+
+preboot();
 document.addEventListener("DOMContentLoaded", () => {
-  preboot();
   boot();
 });

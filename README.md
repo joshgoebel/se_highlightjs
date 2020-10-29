@@ -42,5 +42,5 @@ Contributions are welcome.  Please first open an issue to discuss.
 
 - [ ] Need to look into custom SE sites that manually load certain grammars (like Mathematica), may need to mirror that behavior with special case logic.
 - [ ] Use question tags to better clue the auto-detect (needs a mapping table) [Discussion](https://meta.stackexchange.com/questions/354793/improving-syntax-highlighting-language-auto-detection)
-- [ ] Do not highlight at all when overall relevancy is too low (no idea what language we really have)
+- [x] Do not highlight at all when overall relevancy is too low (no idea what language we really have)
 - [ ] Figure out the proper set of languages for auto-detect (currently same exactly set as SE)
