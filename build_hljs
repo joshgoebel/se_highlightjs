@@ -56,5 +56,9 @@ cd ~/work/highlight.js
 node ./tools/build.js -t cdn $LANGS
 cd $LWD
 pwd
+cat ~/work/highlight.js/build/highlight.min.js | grep 'Highlight.js 10'
+VERSION=`cat ~/work/highlight.js/build/highlight.min.js | grep 'Highlight.js \d' | cut -d' ' -f3-`
+sed "s/VERSION = ".*"/VERSION = \"${VERSION}\"/" ./extension/injected.js > injected.tmp
+mv injected.tmp ./extension/injected.js
 cp ~/work/highlight.js/build/highlight.min.js ./extension/vendor/
 cp -R ~/work/highlight.js/build/languages ./extension/vendor/

@@ -1,6 +1,7 @@
 // unknown code blocks with less than 3 relevance will not be
 // highlighted at all
 const MINIMAL_RELEVANCE = 3;
+const VERSION = "Highlight.js 10.3.99 (1982c8ca)"
 
 // given a block find it's lang-`class` language
 const langClassFor = (block) => {
@@ -144,7 +145,7 @@ const addLanguageLoadedHook = () => {
 const boot = () => {
   addLanguageLoadedHook();
   doHighlighting();
-  console.log(`Using Highlight.js version ${hljs.versionString}`);
+  console.log(`Using Highlight.js ${VERSION}`);
 }
 
 boot();
