@@ -1,6 +1,6 @@
 # Code of Conduct
 
-Thanks to [Exercism.io](https://exercism.io/) for their "simple version" which I borrow here (with thanks):
+Thanks to [Exercism](https://exercism.io/) for their "simple version" which I borrow here (with thanks):
 
 - Be empathetic
 - Be welcoming
