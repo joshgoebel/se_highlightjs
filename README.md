@@ -1,4 +1,13 @@
+![](https://img.shields.io/badge/maintainer-needed-red?style=for-the-badge&logo=github) 
+![](https://img.shields.io/badge/maintainer-needed-red?style=for-the-badge&logo=github) 
+![](https://img.shields.io/badge/maintainer-needed-red?style=for-the-badge&logo=github) 
+
+I created this as a proof of concept but don't really have time or desire to properly maintain it or push it forward (I don't use StackOverflow a ton).  If someone else is interested, please open an issue or reach out. So far there seems very little interest overall - to maintain or consume.
+
+---
+
 # SE_highlightjs
+
 Improved Highlight.js support for StackExchange / StackOverflow
 
 ## Overview
